@@ -4,7 +4,6 @@ module.exports = {
     desc: "A new blog",
     funnelName: "GatsbyFunnel"
   },
-  pathPrefix: "/levelupgatsby",
   plugins: [
     'gatsby-plugin-react-helmet', 
     'gatsby-plugin-styled-components',
@@ -32,3 +31,5 @@ module.exports = {
     'gatsby-plugin-sharp'
   ]
 };
+
+//  pathPrefix: "/levelupgatsby",
