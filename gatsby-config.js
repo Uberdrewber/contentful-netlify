@@ -8,6 +8,13 @@ module.exports = {
     'gatsby-plugin-react-helmet', 
     'gatsby-plugin-styled-components',
     {
+      resolve: "gatsby-source-contentful",
+      options: {
+        spaceId: "gkhubcuejfh9",
+        accessToken: "6c249ca3ae49f26bcb98e6d32b8d26984f6c3a6de1a750aa2ed26fe7c5bb92d5"
+      }
+    },
+    {
       resolve: "gatsby-source-filesystem",
       options: {
         name: "img",
@@ -28,15 +35,9 @@ module.exports = {
         path: `${__dirname}/src/`
       }
     },
-    {
-      resolve: "gatsby-transformer-remark",
-      options: {
-        excerpt_separator: `<!-- end -->`
-      }
-    },
     'gatsby-transformer-sharp',
-    'gatsby-plugin-sharp',
-    "gatsby-plugin-netlify-cms"
+    'gatsby-transformer-remark',
+    'gatsby-plugin-sharp'
   ]
 };
 

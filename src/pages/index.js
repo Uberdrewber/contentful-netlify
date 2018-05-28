@@ -6,7 +6,7 @@ import PostListing from '../components/Posts/PostListing';
 const IndexPage = ({data}) => (
   <div>
     <h2>Here Are My Thoughts Bruh</h2>
-    {data.allMarkdownRemark.edges.map(({node}) => (
+    {data.allContentfulBlogPost.edges.map(({node}) => (
       <PostListing key={node.id} post={node} />
     ))}
   </div>
@@ -23,22 +23,18 @@ query SiteMeta {
       funnelName
     }
   }
-  allMarkdownRemark(sort: {
-    fields: [frontmatter___date],
-    order: DESC
-  }) {
+  allContentfulBlogPost {
     edges {
       node {
+        title
+        createdAt(formatString: "MMMM DD, YYYY")
+        body {
+          childMarkdownRemark {
+              excerpt
+          }
+        }
+        slug
         id
-        frontmatter {
-          title
-          date(formatString:"MMMM DD YYYY")
-        }
-        html
-        fields { 
-          slug 
-        }
-        excerpt(pruneLength: 280)
       }
     }
   }
